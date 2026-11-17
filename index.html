@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f1115"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="ClipForge"><meta name="mobile-web-app-capable" content="yes"><meta name="description" content="Interfaz privada y local-first para preparar clips de directos."><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="stylesheet" href="src/style.css"><title>ClipForge Local Mobile</title>
+</head>
+<body>
+<div class="app">
+<header><div class="brand"><div class="logo">CF</div><div><h1>ClipForge</h1><span>Local Mobile</span></div></div><button id="settingsBtn" class="icon">⚙</button></header>
+<main>
+<section id="home" class="screen active">
+<div class="hero"><p class="eyebrow">PRIVATE • LOCAL-FIRST</p><h2>Convierte tus directos en clips.</h2><p>Versión móvil para preparar, revisar y gestionar tus clips desde el iPhone.</p></div>
+<label class="drop"><input id="videoInput" type="file" accept="video/*" multiple><span class="plus">＋</span><b>Seleccionar directo</b><small>MP4, MOV, WebM y otros formatos compatibles</small></label>
+<div class="grid">
+<button class="card" id="liveBtn"><span>🔴</span><b>Modo en vivo</b><small>Preparar procesamiento por bloques</small></button>
+<button class="card" id="rulesBtn"><span>📚</span><b>Reglas</b><small>PDF, TXT, MD e imágenes</small></button>
+</div>
+<div class="note">El procesamiento pesado de directos de varias horas requiere un motor local en un computador. Esta versión móvil funciona como interfaz y gestor privado.</div>
+</section>
+<section id="queue" class="screen"><button class="back">← Volver</button><h2>Directo seleccionado</h2><div id="fileInfo"></div><div class="settings"><label>Cantidad <select id="count"><option>1</option><option>3</option><option>5</option><option selected>10</option><option>15</option><option value="custom">Personalizada</option></select></label><label>Duración <select id="duration"><option>auto</option><option>15-30 s</option><option>30-45 s</option><option>45-60 s</option><option>custom</option></select></label></div><button id="analyze" class="primary">ANALIZAR DIRECTO</button><div id="mobileWarning" class="note"></div></section>
+<section id="results" class="screen"><button class="back">← Volver</button><h2>Mis clips</h2><div id="clips"></div></section>
+<section id="settings" class="screen"><button class="back">← Volver</button><h2>Configuración</h2><div class="panel"><label>Motor de procesamiento<input id="engine" value="Local PC / ClipForge Server"></label><label>Dirección del motor<input id="server" placeholder="http://192.168.x.x:8000"></label><button id="saveSettings" class="primary">Guardar</button></div><div class="note">Puedes usar el iPhone como interfaz mientras ClipForge Local corre en tu PC. No se envían videos a una API de IA de pago.</div></section>
+<section id="rules" class="screen"><button class="back">← Volver</button><h2>Reglas de edición</h2><label class="drop compact"><input id="rulesInput" type="file" accept=".pdf,.txt,.md,image/*,video/*" multiple><span>📎</span><b>Añadir reglas y referencias</b><small>Se guardan en este dispositivo</small></label><div id="rulesList"></div></section>
+</main>
+<nav><button data-go="home">⌂<span>Inicio</span></button><button data-go="results">▣<span>Clips</span></button><button data-go="rules">☷<span>Reglas</span></button><button data-go="settings">⚙<span>Ajustes</span></button></nav>
+</div>
+<script src="src/app.js"></script>
+</body></html>
